@@ -1,1 +1,88 @@
-Hello World!
+Program 2 :
+1. git config --global user.name "AnupPrashanth1"
+2. git config --global user.email "placements.anup@gmail.com"
+3. git clone https://github.com/AnupPrashanth1/DevOps.git
+4. cd DevOps
+5. code .
+6. git add .
+7. git status
+8. git commit -m "Added Hello World"
+9. git push origin main
+10. git pull origin main
+
+Program 3 : 
+1. docker --version
+2. docker pull ubuntu
+3. docker run -it ubuntu
+4. exit
+5. mkdir DockerPractice
+6. cd DockerPractice
+7. notepad app.py :
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return "Hello from Docker!"
+
+app.run(host='0.0.0.0', port=5000)
+8. notepad requirements.txt
+9. notepad Dockerfile :
+FROM python:3.8-slim
+
+WORKDIR /app
+
+COPY . .
+
+RUN pip install -r requirements.txt
+
+CMD ["python","app.py"]
+10. docker build -t flask-app .
+11.  http://localhost:5000/
+12. docker login
+13. docker tag flask-app 1by23cs025/flask-app
+14. docker push 1by23cs025/flask-app
+
+Program 4 :
+1. mkdir DockerCompose
+2. cd DockerCompose
+3. notepad Docker-compose.yml :
+services:
+  web: 
+    image: nginx
+    ports: 
+      - "9090:80"
+  database:
+    image: redis
+4. docker-compose config
+5. docker-compose up -d
+6. docker-compose down
+
+Program 5 :
+1. Install JDK 21
+2. Install Jenkins
+3. Configure file path to JDK 21
+4. http://localhost:8080
+
+Program 7 :
+scoop install maven
+scoop install gradle
+mvn -version
+gradle -version
+
+Program 8 :
+1. mkdir MavenPractice
+2. cd MavenPractice
+3. mvn archetype:generate   -DgroupId=com.example.mavenapp   -DartifactId=mavenapp   -DarchetypeArtifactId=maven-archetype-quickstart   -DinteractiveMode=false
+cd mavenapp  
+4. cd mavenapp
+5. mvn clean install
+6. exec:java -Dexec.mainClass="com.example.mavenapp.App"
+
+Program 9 :
+1. mkdir GradleApp
+2. cd GradleApp
+3. gradle init --type java-application --dsl groovy --project-name myapp --package com.example.myapp 
+4. gradle build
+5. gradle run
